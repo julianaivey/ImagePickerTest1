@@ -21,6 +21,10 @@
 		0CC5EB1E1974769100503E68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC5EB001974769000503E68 /* UIKit.framework */; };
 		0CC5EB261974769100503E68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CC5EB241974769100503E68 /* InfoPlist.strings */; };
 		0CC5EB281974769100503E68 /* ImagePickerTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5EB271974769100503E68 /* ImagePickerTestTests.m */; };
+		0CC5EB32197480D300503E68 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC5EB31197480D300503E68 /* AssetsLibrary.framework */; };
+		0CC5EB35197486D700503E68 /* JBIPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5EB34197486D700503E68 /* JBIPhotoCell.m */; };
+		0CDFC97F1976FE53007C4EA8 /* JBICell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFC97E1976FE53007C4EA8 /* JBICell.m */; };
+		0CDFC9C319784DAE007C4EA8 /* JBICollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFC9C219784DAE007C4EA8 /* JBICollectionViewLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,13 @@
 		0CC5EB231974769100503E68 /* ImagePickerTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImagePickerTestTests-Info.plist"; sourceTree = "<group>"; };
 		0CC5EB251974769100503E68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0CC5EB271974769100503E68 /* ImagePickerTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerTestTests.m; sourceTree = "<group>"; };
+		0CC5EB31197480D300503E68 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		0CC5EB33197486D700503E68 /* JBIPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBIPhotoCell.h; sourceTree = "<group>"; };
+		0CC5EB34197486D700503E68 /* JBIPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBIPhotoCell.m; sourceTree = "<group>"; };
+		0CDFC97D1976FE53007C4EA8 /* JBICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBICell.h; sourceTree = "<group>"; };
+		0CDFC97E1976FE53007C4EA8 /* JBICell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBICell.m; sourceTree = "<group>"; };
+		0CDFC9C119784DAE007C4EA8 /* JBICollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBICollectionViewLayout.h; sourceTree = "<group>"; };
+		0CDFC9C219784DAE007C4EA8 /* JBICollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBICollectionViewLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC5EB32197480D300503E68 /* AssetsLibrary.framework in Frameworks */,
 				0CC5EAFF1974769000503E68 /* CoreGraphics.framework in Frameworks */,
 				0CC5EB011974769000503E68 /* UIKit.framework in Frameworks */,
 				0CC5EAFD1974769000503E68 /* Foundation.framework in Frameworks */,
@@ -101,6 +113,7 @@
 		0CC5EAFB1974769000503E68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CC5EB31197480D300503E68 /* AssetsLibrary.framework */,
 				0CC5EAFC1974769000503E68 /* Foundation.framework */,
 				0CC5EAFE1974769000503E68 /* CoreGraphics.framework */,
 				0CC5EB001974769000503E68 /* UIKit.framework */,
@@ -115,8 +128,14 @@
 				0CC5EB0B1974769100503E68 /* JBIAppDelegate.h */,
 				0CC5EB0C1974769100503E68 /* JBIAppDelegate.m */,
 				0CC5EB0E1974769100503E68 /* Main.storyboard */,
+				0CDFC9C119784DAE007C4EA8 /* JBICollectionViewLayout.h */,
+				0CDFC9C219784DAE007C4EA8 /* JBICollectionViewLayout.m */,
+				0CC5EB33197486D700503E68 /* JBIPhotoCell.h */,
+				0CC5EB34197486D700503E68 /* JBIPhotoCell.m */,
 				0CC5EB111974769100503E68 /* JBIViewController.h */,
 				0CC5EB121974769100503E68 /* JBIViewController.m */,
+				0CDFC97D1976FE53007C4EA8 /* JBICell.h */,
+				0CDFC97E1976FE53007C4EA8 /* JBICell.m */,
 				0CC5EB141974769100503E68 /* Images.xcassets */,
 				0CC5EB031974769100503E68 /* Supporting Files */,
 			);
@@ -250,6 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CDFC9C319784DAE007C4EA8 /* JBICollectionViewLayout.m in Sources */,
+				0CDFC97F1976FE53007C4EA8 /* JBICell.m in Sources */,
+				0CC5EB35197486D700503E68 /* JBIPhotoCell.m in Sources */,
 				0CC5EB0D1974769100503E68 /* JBIAppDelegate.m in Sources */,
 				0CC5EB091974769100503E68 /* main.m in Sources */,
 				0CC5EB131974769100503E68 /* JBIViewController.m in Sources */,
@@ -318,6 +340,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -336,7 +359,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
 			};
 			name = Debug;
 		};
@@ -356,6 +379,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -367,7 +391,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -380,7 +404,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImagePickerTest/ImagePickerTest-Prefix.pch";
 				INFOPLIST_FILE = "ImagePickerTest/ImagePickerTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -393,7 +419,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImagePickerTest/ImagePickerTest-Prefix.pch";
 				INFOPLIST_FILE = "ImagePickerTest/ImagePickerTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -457,6 +485,7 @@
 				0CC5EB2D1974769100503E68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CC5EB2E1974769100503E68 /* Build configuration list for PBXNativeTarget "ImagePickerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +494,7 @@
 				0CC5EB301974769100503E68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 //
-//  JBIViewController.h
+//  JBIPhotoCell.h
 //  ImagePickerTest
 //
 //  Created by Juliana Ivey on 7/14/14.
@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface JBIViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+@interface JBIPhotoCell : UICollectionViewCell
+@property(nonatomic, strong) ALAsset *asset;
 
 @end
+
