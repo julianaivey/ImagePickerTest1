@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JBISourcePicker.h"
 
-@interface JBIViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface JBIViewController : UIViewController <JBISourcePickerDelegate, UITextFieldDelegate> {
+    JBISourcePicker *picker;
+    UIPopoverController *pickerPopOver;
+    UIPopoverController *pOC;
+    CGRect popRect;
+}
 
 
 @end

@@ -8,19 +8,19 @@
 
 #import "JBIViewController.h"
 #import "JBIPhotoCell.h"
-#import "JBICell.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <QuartzCore/QuartzCore.h>
 #import "JBICollectionViewLayout.h"
+#import "UIImage+Resize.h"
 
-static CGFloat expandedHeight = 100.0;
-static CGFloat contractedHeight = 44.0;
 
-@interface JBIViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface JBIViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property(nonatomic, strong) NSArray *assets;
 @property(nonatomic, strong) NSIndexPath *expandedIndexPath;
-@property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(nonatomic) NSUInteger numberOfTapsRequired;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation JBIViewController
@@ -73,6 +73,7 @@ static CGFloat contractedHeight = 44.0;
     // Dispose of any resources that can be recreated.
 }
 
+//access assets library (camera roll)
 
 +(ALAssetsLibrary *)defaultAssetsLibrary
 {
@@ -86,21 +87,30 @@ static CGFloat contractedHeight = 44.0;
 
 #pragma mark - collection view data source
 
+//sets number of items in collection view to number of photos accessed (assets)
+
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.assets.count;
 }
 
 
+//what to do when image is selected (not complete)
+
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ALAsset *asset = self.assets[indexPath.row];
     ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
+    //ALAssetRepresentation *thumbRep = [asset aspectRatioThumbnail];
     UIImage *image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
     // Do something with the image
+   
+    
+   
     
 }
 
+//configures collection view cell
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -111,22 +121,29 @@ static CGFloat contractedHeight = 44.0;
     cell.asset = asset;
     cell.backgroundColor = [UIColor redColor];
     
+    
     return cell;
 }
 
+
+
+
+//line spacing for collection view
 
 - (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 4;
 }
 
-
+//more spacing for collection view
 - (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 1;
 }
 
 #pragma mark - Actions
+
+//method for button that takes you to camera
 
 - (IBAction)takePhotoButtonTapped:(id)sender
 {
@@ -145,6 +162,8 @@ static CGFloat contractedHeight = 44.0;
 }
 
 
+//method for button that takes you to albums
+
 - (IBAction)albumsButtonTapped:(id)sender {
     
     if (([UIImagePickerController isSourceTypeAvailable:
@@ -159,62 +178,6 @@ static CGFloat contractedHeight = 44.0;
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [sources count];
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [sources count];
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    
-    cell.textLabel.text = [sources objectAtIndex:indexPath.row];
-    return cell;
-}
-
-
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    [self updateTableView];
-}
-
-
--(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self updateTableView];
-}
-
-
- - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-     
-     if ([tableView indexPathsForSelectedRows].count) {
-         
-         if ([[tableView indexPathsForSelectedRows] indexOfObject:indexPath] != NSNotFound) {
-             return expandedHeight; // Expanded height
-         }
-         
-         return contractedHeight; // Normal height
-     }
-     
-     return contractedHeight; // Normal height
-}
-
-
-- (void)updateTableView
-{
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
-}
 
 
 //The following method will call zoomToRect in collection view to zoom in to full screen
@@ -229,6 +192,40 @@ MyLayout *stackedLayout = [[MyLayout alloc] initWithSelectedCellIndexPath:indexP
 [self.collectionView setCollectionViewLayout:stackedLayout
                                     animated:YES];
 */
+
+//From here on down: methods dealing with camera roll text field (drop down menu)
+
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    popRect = CGRectMake(406, 110, 0, 0);
+    CGRect pickerRect = CGRectMake(0, 10, 0, 0);
+    
+    NSArray *contents = [[NSArray alloc] initWithObjects:@"Object 1", @"Object 2", @"Object 3", nil];
+    picker = [[JBISourcePicker alloc] initWithArray:contents inFrame:pickerRect];
+    picker.delegatePicker = self;
+    
+    pickerPopOver = [[UIPopoverController alloc] initWithContentViewController:picker];
+    pickerPopOver.popoverContentSize = CGSizeMake(320, 250);
+    [pickerPopOver presentPopoverFromRect:popRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:TRUE];
+    
+    pOC = pickerPopOver;
+}
+
+-(void)touchedPicker:(NSString *)string{
+    
+//    [yourTextField setText:string];
+    [pickerPopOver dismissPopoverAnimated:YES];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    [pOC dismissPopoverAnimated:NO];
+    return YES;
+}
 
 
 @end
