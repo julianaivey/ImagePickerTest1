@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#include "UIImage+Resize.h"
 
 @interface JBIPhotoCell : UICollectionViewCell
 @property(nonatomic, strong) ALAsset *asset;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 

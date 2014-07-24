@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Juliana Ivey. All rights reserved.
 //
 
+#import "UIImage+Resize.h"
 #import "JBIViewController.h"
 #import "JBIPhotoCell.h"
 #import <AssetsLibrary/AssetsLibrary.h>
