@@ -19,7 +19,6 @@
 {
     // 2
     _asset = asset;
-    //UIImage* thumbnail = [UIImage
     self.photoImageView.image = [UIImage imageWithCGImage:[asset thumbnail]];
 }
 
