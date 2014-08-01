@@ -11,6 +11,7 @@
 		0C7575301979DC76000A216D /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C75752F1979DC76000A216D /* UIImage+Alpha.m */; };
 		0C7575331979DCBE000A216D /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7575321979DCBE000A216D /* UIImage+RoundedCorner.m */; };
 		0C757536197D9198000A216D /* JBISourcePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C757535197D9198000A216D /* JBISourcePicker.m */; };
+		0C757539198C0C9B000A216D /* JBICheckMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C757538198C0C9B000A216D /* JBICheckMark.m */; };
 		0CC5EAFD1974769000503E68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC5EAFC1974769000503E68 /* Foundation.framework */; };
 		0CC5EAFF1974769000503E68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC5EAFE1974769000503E68 /* CoreGraphics.framework */; };
 		0CC5EB011974769000503E68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC5EB001974769000503E68 /* UIKit.framework */; };
@@ -49,6 +50,8 @@
 		0C7575321979DCBE000A216D /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		0C757534197D9198000A216D /* JBISourcePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBISourcePicker.h; path = ../JBISourcePicker.h; sourceTree = "<group>"; };
 		0C757535197D9198000A216D /* JBISourcePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBISourcePicker.m; path = ../JBISourcePicker.m; sourceTree = "<group>"; };
+		0C757537198C0C9B000A216D /* JBICheckMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBICheckMark.h; sourceTree = "<group>"; };
+		0C757538198C0C9B000A216D /* JBICheckMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBICheckMark.m; sourceTree = "<group>"; };
 		0CC5EAF91974769000503E68 /* ImagePickerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePickerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC5EAFC1974769000503E68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0CC5EAFE1974769000503E68 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +106,8 @@
 		0CC5EAF01974769000503E68 = {
 			isa = PBXGroup;
 			children = (
+				0C757537198C0C9B000A216D /* JBICheckMark.h */,
+				0C757538198C0C9B000A216D /* JBICheckMark.m */,
 				0C75752B1979D881000A216D /* UIImage+Resize.h */,
 				0C7575311979DCBE000A216D /* UIImage+RoundedCorner.h */,
 				0C7575321979DCBE000A216D /* UIImage+RoundedCorner.m */,
@@ -291,6 +296,7 @@
 				0C7575301979DC76000A216D /* UIImage+Alpha.m in Sources */,
 				0C757536197D9198000A216D /* JBISourcePicker.m in Sources */,
 				0CC5EB091974769100503E68 /* main.m in Sources */,
+				0C757539198C0C9B000A216D /* JBICheckMark.m in Sources */,
 				0CC5EB131974769100503E68 /* JBIViewController.m in Sources */,
 				0C75752D1979D881000A216D /* UIImage+Resize.m in Sources */,
 			);
